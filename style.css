@@ -1,0 +1,83 @@
+body {
+    background:blue;
+  }
+  h1 {
+    text-align: center;
+    color: #ffff00;
+    font-family: 'Wonder', sans-serif;
+    font-size: 50px;
+  }
+  .parent-div {
+    width: 900px;
+    height: 700px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    }
+    .game-card {
+        width: calc(25% - 20px);
+        height: calc(25% - 0px);
+        margin: 10px;
+        position: relative;
+        cursor: pointer;
+        transform: scale(1);
+        transform-style: preserve-3d;
+        transition: transform .5s;
+      }
+      .game-card:active {
+        transform: scale(0.97);
+        transition: transform .2s;
+      }
+      .card-front, .card-back {
+        width: 75%;
+        height: 75%;
+        padding: 20px;
+        position: absolute;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px 2px black;
+      }
+       #b1,#b2,#b3,#b4,#w1,#w2,#w3,#w4,#c1,#c2,#c3,#c4,#h1,#h2,#h3,#h4,#s1,#s2,#s3,#s4,#ww1,#ww2,#ww3,#ww4 {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+    backface-visibility: hidden;
+    border-radius: 20%; 
+  }
+  #play-again {
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 45%;
+    font-size: 20px;
+    background-color: red;
+    color: white;
+    font-family: 'Wonder', sans-serif;
+    padding: 3px;
+  }
+  .moves {
+    position: relative;
+    display: flex;
+    font-size: 30px;
+    margin-top: 6%;
+    margin-left: 15%;
+    font-family: 'Wonder', sans-serif;
+  }
+  .time {
+    position: relative;
+    display: flex;
+    font-size: 30px;
+    margin-top: -6.5%;
+    margin-left: 50%;
+    font-family: 'Wonder', sans-serif;
+  }
+  .game-card.flip {
+    transform: rotateY(180deg);
+  }
+  .card-front {
+    transform: rotateY(180deg);
+  }
