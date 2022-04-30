@@ -16,20 +16,24 @@ body {
     perspective: 1000px;
     }
     .game-card {
+        /*calc func take margin under consideration by sub margin from w and h */
         width: calc(25% - 20px);
         height: calc(25% - 0px);
         margin: 10px;
         position: relative;
         cursor: pointer;
+        /*for transition work, we add this line*/
         transform: scale(1);
+        /*add 3D effects to the cards*/
         transform-style: preserve-3d;
         transition: transform .5s;
       }
+      /* set a click effect to the each card so it will be triggered whenever an element gets clicked*/
       .game-card:active {
         transform: scale(0.97);
         transition: transform .2s;
       }
-      .card-front, .card-back {
+      .card-front,.card-back {
         width: 75%;
         height: 75%;
         padding: 20px;
@@ -75,9 +79,12 @@ body {
     margin-left: 50%;
     font-family: 'Wonder', sans-serif;
   }
+  /* Set the flip class*/
   .game-card.flip {
+      /*when flipped class is present we are gonna rotate it to 180 degree */
     transform: rotateY(180deg);
   }
+  /* we setbackface-visibility:hidden andwe rotate 180 deg in y-axis so we can see it */
   .card-front {
     transform: rotateY(180deg);
   }
