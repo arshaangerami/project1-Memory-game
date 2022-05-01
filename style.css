@@ -28,11 +28,12 @@ body {
         transform-style: preserve-3d;
         transition: transform .5s;
       }
-      /* set a click effect to the each card so it will be triggered whenever an element gets clicked*/
-      .game-card:active {
+      set a click effect to the each card so it will be triggered whenever an element gets clicked*/
+       .game-card:active {
         transform: scale(0.97);
         transition: transform .2s;
-      }
+       } 
+     
       .card-front,.card-back {
         width: 75%;
         height: 75%;
@@ -81,10 +82,10 @@ body {
   }
   /* Set the flip class*/
   .game-card.flip {
-      /*when flipped class is present we are gonna rotate it to 180 degree */
+      /*when flipped class is present we are gonna rotate it to 180 degree*/
     transform: rotateY(180deg);
   }
   /* we setbackface-visibility:hidden andwe rotate 180 deg in y-axis so we can see it */
   .card-front {
     transform: rotateY(180deg);
-  }
+  } 
