@@ -1,9 +1,9 @@
 body {
-    background:blue;
+    background:linear-gradient(to right,#acb6e5,#74ebd5);
   }
   h1 {
     text-align: center;
-    color: #ffff00;
+    color: #1f746d;
     font-family: 'Wonder', sans-serif;
     font-size: 50px;
   }
@@ -22,13 +22,13 @@ body {
         margin: 10px;
         position: relative;
         cursor: pointer;
-        /*for transition work, we add this line*/
-        transform: scale(1);
-        /*add 3D effects to the cards*/
-        transform-style: preserve-3d;
+        /* for transition work, we add this line*/
+        transform: scale(1); 
+        /* add 3D effects to the cards when we add preserve-3d the parent should have perspective property */
+         transform-style: preserve-3d;
         transition: transform .5s;
       }
-      set a click effect to the each card so it will be triggered whenever an element gets clicked*/
+      /* set a click effect to the each card so it will be triggered whenever an element gets clicked*/
        .game-card:active {
         transform: scale(0.97);
         transition: transform .2s;
@@ -51,7 +51,7 @@ body {
     backface-visibility: hidden;
     border-radius: 20%; 
   }
-  #play-again {
+  #play-game {
     position: relative;
     display: inline-block;
     justify-content: center;
@@ -59,7 +59,7 @@ body {
     cursor: pointer;
     margin-left: 45%;
     font-size: 20px;
-    background-color: red;
+    background-color: rgb(45, 118, 126);
     color: white;
     font-family: 'Wonder', sans-serif;
     padding: 3px;
@@ -84,8 +84,8 @@ body {
   .game-card.flip {
       /*when flipped class is present we are gonna rotate it to 180 degree*/
     transform: rotateY(180deg);
-  }
-  /* we setbackface-visibility:hidden andwe rotate 180 deg in y-axis so we can see it */
-  .card-front {
+   } 
+  /* we setbackface-visibility:hidden and we rotate 180 deg in y-axis so we can see it */
+   .card-front {
     transform: rotateY(180deg);
-  } 
+  }  
