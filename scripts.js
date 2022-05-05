@@ -1,6 +1,6 @@
 
 let imgNameList=['batman.png','black-widow.png','captain-america.png','hulk.png','spider-man.png','wonder-woman.png']
-
+let score = 0
 let timer = 60
 let timerIntervalID;
 //make a obj of array with 12 empty item in it
