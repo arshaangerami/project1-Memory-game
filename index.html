@@ -11,72 +11,26 @@
     <h1>Memory Game</h1>
 
     <button id="play-game">Play Game</button>
-
-    <section class="parent-div">
-
-        <div class="game-card" id="card0">
-          <img class="card-front" id="b1" src="./img/batman.png" alt="batman">
-          <img class="card-back" id="b2" src="./img/general-assembly.png" alt="GA">
-        </div>
-        <div class="game-card" id="card1">
-          <img class="card-front" id="b3" src="./img/batman.png" alt="batman">
-          <img class="card-back"  id="b4" src="./img/general-assembly.png" alt="GA">
-        </div>
     
-        <div class="game-card" id="card2">
-          <img class="card-front" id="w1" src="./img/black-widow.png" alt="black-widow">
-          <img class="card-back" id="w2" src="./img/general-assembly.png" alt="GA">
-        </div>
-        <div class="game-card" id="card3">
-          <img class="card-front" id="w3" src="./img/black-widow.png" alt="black-widow">
-          <img class="card-back" id="w4" src="./img/general-assembly.png" alt="GA">
-        </div>
     
-        <div class="game-card" id="card4">
-          <img class="card-front" id="c1" src="./img/captain-america.png" alt="captain-america">
-          <img class="card-back" id="c2" src="./img/general-assembly.png" alt="GA">
+    <section class="parent-div" id="card-container">
+        <!-- refactore my 12 card in js with for loop -->
+        <!-- <div class="game-card" id="card0">
+            <img class="card-front card-style" id="b1" src=" " alt="batman">
+            <img class="card-back" id="b2" src="./img/general-assembly.png" alt="GA">
         </div>
-        <div class="game-card" id="card5">
-          <img class="card-front" id="c3" src="./img/captain-america.png" alt="captain-america">
-          <img class="card-back" id="c4" src="./img/general-assembly.png" alt="GA">
-        </div>
+         -->
+        
+    </section>
     
-        <div class="game-card" id="card6">
-          <img class="card-front" id="h1" src="./img/hulk.png" alt="hulk">
-          <img class="card-back"  id="h2" src="./img/general-assembly.png" alt="GA">
+    <div class="moves-time">
+        <div class="moves">
+            <p class="moves-made">Moves Counts:-</p>
         </div>
-        <div class="game-card" id="card7">
-          <img class="card-front" id="h3" src="./img/hulk.png" alt="hulk">
-          <img class="card-back" id="h4" src="./img/general-assembly.png" alt="GA">
+        <div class="time">
+            <span class="timer">Timer: <span id="timer">00</span></span>
         </div>
-    
-        <div class="game-card" id="card8">
-          <img class="card-front" id="s1" src="./img/spider-man.png" alt="spider-man">
-          <img class="card-back" id="s2" src="./img/general-assembly.png" alt="GA">
-        </div>
-        <div class="game-card" id="card9">
-          <img class="card-front" id="s3" src="./img/spider-man.png" alt="spider-man">
-          <img class="card-back" id="s4" src="./img/general-assembly.png" alt="GA">
-        </div>
-    
-        <div class="game-card" id="card10">
-          <img class="card-front" id="ww1" src="./img/wonder-woman.png" alt="wonder-woman">
-          <img class="card-back" id="ww2" src="./img/general-assembly.png" alt="GA">
-        </div>
-        <div class="game-card" id="card11">
-          <img class="card-front" id="ww3" src="./img/wonder-woman.png" alt="wonder-woman">
-          <img class="card-back" id="ww4" src="./img/general-assembly.png" alt="GA">
-        </div>
-      </section>
-
-      <div class="moves">
-          <p class="mobves-made">Moves Counts</p>
-      </div>
-      <div class="time">
-          <span class="timer">Timer: <span id="timer">00</span></span>
-      </div>
-    
-
+    </div>
 
     <script src="scripts.js"></script>
 </body>

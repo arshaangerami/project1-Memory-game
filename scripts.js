@@ -1,8 +1,12 @@
 
 let imgNameList=['batman.png','black-widow.png','captain-america.png','hulk.png','spider-man.png','wonder-woman.png']
 
-let timer = 10
+let timer = 60
 let timerIntervalID;
+//make a obj of array with 12 empty item in it
+let cardArray = new Array(12)
+let lastSelectedCard = null
+let moveCount = 0 
 
 //this function gets the list of image arrays and duplicate it 
 function getImageNameList(array){
@@ -14,17 +18,82 @@ function getImageNameList(array){
 }
 
 function prepareCards(){
-    //getElementbyClassname return a HTML Collection
-    let imageCards = document.getElementsByClassName('card-back')
-    let imageNames = getImageNameList(imgNameList)
-    //console.log(imageCards)
-    //array.from make a copy of array and I want to make a src for 12 cards
-    Array.from(imageCards).forEach((el) => {
-        let imageName = imageNames.pop()
-        el.src = `./img/${imageName}`
+    //Refactor my html with for loop
+    let cardContainer = document.getElementById('card-container')
+    //clear the board each time when push play game 
+    cardContainer.innerHTML = ""
 
-    })
+    let imageNames = getImageNameList(imgNameList)
+
+    for(i=0 ; i< 12 ; i++){
+
+        let gameCard = document.createElement('div')
+        gameCard.classList.add('game-card')
+        gameCard.setAttribute('id',i)
+        
+        let frontImage = document.createElement('img')
+        frontImage.classList.add('card-front','card-style')
+        let imageName = imageNames.pop()
+        frontImage.setAttribute('src',`./img/${imageName}`)
+
+        let backImage =document.createElement('img')
+        backImage.classList.add('card-back','card-style')
+        backImage.setAttribute('src','./img/general-assembly.png')
+
+        gameCard.appendChild(frontImage)
+        gameCard.appendChild(backImage)
+
+        cardContainer.appendChild(gameCard)
+        //with this obj I can access to the card and the permisssion for flip it
+        cardArray[i] = {
+            'card' : gameCard,
+            'flipPermission' : true,
+            'name' : imageName
+        }
+
+        gameCard.onclick = (event) =>{
+            //This the current card that I picked
+            let cardID = parseInt(event.target.parentElement.id)
+            let currentCard = cardArray[cardID]
+            
+            //set condition for when I click on card then I couldn't click on it again
+            if(currentCard.flipPermission === true){
+                currentCard.card.classList.toggle('flip')
+                currentCard.flipPermission = false
+               
+                
+            
+                // //tell that the card is second card choose by player not the first card
+                // if(lastSelectedCard !== null){
+                //     //check the matching cards
+                //     if(lastSelectedCard.name === currentCard.name){
+                //         //when two cards matched the thirdv card again will be our first card 
+                //         lastSelectedCard = null
+
+
+                //     }else{
+
+                //     }
+
+
+                // }else{
+                //     //if this click is my first click
+                //     moveCount++;
+                //     lastSelectedCard =currentCard
+
+
+
+
+                // }
+
+
+        }
+
+
+    }
+    
  }
+}
 //this function count down the timer
  function timerCountDown(){
      timer--;
@@ -40,33 +109,14 @@ window.addEventListener('load',() =>{
     let playGameBtn =document.getElementById('play-game')
     playGameBtn.onclick = () => {
         prepareCards()
+        timer = 60
         timerIntervalID = setInterval(timerCountDown,1000)
         
         
     }
 })
-//set an empty array to push card choices into it
-// playerChoice =[]
 
-//Flip card to reveal the character image
-// function flipBack(){
-//     // console.log("hi")
-//     // console.log(this)
-//     //with toggle if the class is there remove it if it's not added
-//     this.classList.toggle('flip')
-//     // if(playerChoice.length !== 2){
-//     //     //only clicked on one card
-//     //     playerChoice.push()
-        
-        
-//     // }
-    
-// }
 
-// Add eventListener to each card when I click on ech of them do flipBack function
-// gameCards.forEach(card => card.addEventListener('click',flipBack))
-// window.addEventListener('load' , ()=>{
-//     setTimeout()
 
-// })
+
 
