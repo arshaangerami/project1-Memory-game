@@ -1,12 +1,21 @@
 
+
+
 let imgNameList=['batman.png','black-widow.png','captain-america.png','hulk.png','spider-man.png','wonder-woman.png']
-let score = 0
+
 let timer = 60
 let timerIntervalID;
 //make a obj of array with 12 empty item in it
 let cardArray = new Array(12)
 let lastSelectedCard = null
 let moveCount = 0 
+
+function flipAllcards(){
+    cardArray.forEach((object)=>{
+        object.card.classList.toggle('flip')
+
+    })
+}
 
 //this function gets the list of image arrays and duplicate it 
 function getImageNameList(array){
@@ -16,6 +25,33 @@ function getImageNameList(array){
     return duplicateImageName
 
 }
+
+function flipMissmatchCard(card1,card2){
+    card1.card.classList.toggle('flip')
+    card1.flipPermission = true
+
+    card2.card.classList.toggle('flip')
+    card2.flipPermission = true
+
+}
+
+function isFinished(){
+    for(let i=0 ; i <12 ; i++){
+        ///find one card that game is not finished
+        if(cardArray[i].flipPermission === true)
+          return false
+    }
+    return true
+
+}
+
+
+function checkFinished?()
+
+
+
+
+
 
 function prepareCards(){
     //Refactor my html with for loop
@@ -29,7 +65,7 @@ function prepareCards(){
 
         let gameCard = document.createElement('div')
         gameCard.classList.add('game-card')
-        gameCard.setAttribute('id',i)
+        // gameCard.setAttribute('id',i)
         
         let frontImage = document.createElement('img')
         frontImage.classList.add('card-front','card-style')
@@ -51,41 +87,39 @@ function prepareCards(){
             'name' : imageName
         }
 
-        gameCard.onclick = (event) =>{
+        gameCard.onclick = () =>{
             //This the current card that I picked
-            let cardID = parseInt(event.target.parentElement.id)
-            let currentCard = cardArray[cardID]
+            // let cardID = parseInt(event.target.parentElement.id)
+            // let currentCard = cardArray[cardID]
+            let currentCard = cardArray[i]
             
             //set condition for when I click on card then I couldn't click on it again
             if(currentCard.flipPermission === true){
+                //flip the card
                 currentCard.card.classList.toggle('flip')
                 currentCard.flipPermission = false
                
-                
-            
-                // //tell that the card is second card choose by player not the first card
-                // if(lastSelectedCard !== null){
-                //     //check the matching cards
-                //     if(lastSelectedCard.name === currentCard.name){
-                //         //when two cards matched the thirdv card again will be our first card 
-                //         lastSelectedCard = null
+                //tell that the card is second card choose by player not the first card
+                if(lastSelectedCard !== null){
+                    //check the matching cards
+                    if(lastSelectedCard.name === currentCard.name){
+                        //when two cards matched the thirdv card again will be our first card 
+                        lastSelectedCard = null
+                        //
+                        if (isFinished())
+                            alert('The game is finished')
 
-
-                //     }else{
-
-                //     }
-
-
-                // }else{
-                //     //if this click is my first click
-                //     moveCount++;
-                //     lastSelectedCard =currentCard
-
-
-
-
-                // }
-
+                    }//the cards are not matched
+                    else{
+                        setTimeout(flipMissmatchCard,1000,lastSelectedCard,currentCard)
+                        lastSelectedCard = null
+                    }
+                }else{
+                    //if this click is my first click
+                    moveCount++;
+                    lastSelectedCard = currentCard
+                }
+                document.getElementById('move-number').innerHTML = moveCount
 
         }
 
@@ -93,6 +127,11 @@ function prepareCards(){
     }
     
  }
+    //when the bord cards make with for loop this func flip all cards and again after 5s it flip the cards again
+    flipAllcards()
+    setTimeout(flipAllcards,5000)
+
+
 }
 //this function count down the timer
  function timerCountDown(){
