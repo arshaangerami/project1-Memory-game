@@ -8,6 +8,20 @@
 
 
 # Installation Instructions
+## Steps
+1. This game will have 12 cards. When you click on each box, they will flip over and reveal either a shape or an image.
+
+2. As well, when you click on a play game button the timer will begin counting down from 60 seconds.
+
+3. Each square will show for one second before flipping back to a blank screen.
+
+4. When a player clicks on two squares that have the same image or shape, the two squares will remain on board and don't flip again.
+
+5. Every match will add a certain amount of moves count.
+
+6. Whenever all cards matched in 60 seconds the message showes victory otherwise the game is over.
+
+
 # User stories
 ## MVP Goals
 
