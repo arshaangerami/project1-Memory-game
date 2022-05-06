@@ -1,6 +1,8 @@
 # Memory-Matching-Game
 > Click on the cards to reveal a shape. If they are a match, they will stay at board if they aren't match they flip again. You have 60 seconds to clear the board! 
 
+<https://masinakhjiri.github.io/project1-Memory-game/>
+
 # Screenshots
 
 <img src="img/Screen Shot 2022-05-06 at 12.06.01 AM.png" alt="memory-game" />
